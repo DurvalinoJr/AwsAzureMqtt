@@ -20,10 +20,10 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
 
-// EndereÃo do Broker MQTT da Amazon AWs
+// Endereço do Broker MQTT da Amazon AWs
 const char* AWS_endpoint = "aojfefigchcsh-ats.iot.us-east-2.amazonaws.com"; 
 
-// EndereÃo do Broker MQTT no Azure
+// Endereço do Broker MQTT no Azure
 const char* AZURE_endpoint = "INSERIR_AQUI";
 
 
@@ -187,9 +187,11 @@ void loop() {
 	
 	// Apenas pisca o led para sabermos que esta o loop
 	digitalWrite(LED_BUILTIN, HIGH); 
-	delay(100); // wait for a second
+	delay(100); // Aguarda um segundo
 	digitalWrite(LED_BUILTIN, LOW); 
-	delay(100); // wait for a second
+	delay(100); // aguarda um segundo
+
+
 }
 
 
