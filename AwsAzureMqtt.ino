@@ -5,6 +5,7 @@
  *         Mathues Gontijo Dias 
  */
 
+
 #include "FS.h"
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -12,25 +13,30 @@
 #include <WiFiUdp.h>
 
 // Dados de conex√£o do WiFi
-
-const char* ssid = "Jorge";
-const char* password = "GaloDoido";
+const char* ssid 	= "Jorge";
+const char* password 	= "GaloDoido";
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
-const char* AWS_endpoint = "aojfefigchcsh-ats.iot.us-east-2.amazonaws.com"; //MQTT broker ip
+
+// Endere√o do Broker MQTT da Amazon AWs
+const char* AWS_endpoint = "aojfefigchcsh-ats.iot.us-east-2.amazonaws.com"; 
+
+// Endere√o do Broker MQTT no Azure
+const char* AZURE_endpoint = "INSERIR_AQUI";
+
 
 void callback(char* topic, byte* payload, unsigned int length) {
-Serial.print("Message arrived [");
-Serial.print(topic);
-Serial.print("] ");
-for (int i = 0; i < length; i++) {
-Serial.print((char)payload[i]);
-}
-Serial.println();
+	Serial.print("Message arrived [");
+	Serial.print(topic);
+	Serial.print("] ");
+	for (int i = 0; i < length; i++) 
+		Serial.print((char)payload[i]);}
 
+	Serial.println();
 }
+
 WiFiClientSecure espClient;
 PubSubClient client(AWS_endpoint, 8883, callback, espClient); //set MQTT port number to 8883 as per //standard
 long lastMsg = 0;
