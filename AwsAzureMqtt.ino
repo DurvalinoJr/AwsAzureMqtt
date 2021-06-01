@@ -190,8 +190,4 @@ void loop() {
 	delay(100); // Aguarda um segundo
 	digitalWrite(LED_BUILTIN, LOW); 
 	delay(100); // aguarda um segundo
-
-
 }
-
-
